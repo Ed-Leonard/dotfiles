@@ -1,0 +1,73 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.o.termguicolors = true
+
+vim.g.have_nerd_font = true
+
+vim.o.number = true
+vim.o.relativenumber = true
+
+vim.o.mouse = 'a'
+
+vim.o.showmode = false
+
+vim.o.clipboard = 'unnamedplus'
+
+vim.o.breakindent = true
+vim.o.autoindent = true
+
+vim.o.undofile = true
+
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+vim.o.smartindent = true
+vim.o.showtabline = 2
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.undofile = true
+
+vim.o.signcolumn = 'yes'
+
+vim.o.updatetime = 250
+
+vim.o.timeoutlen = 300
+
+vim.o.splitright = true
+vim.o.splitbelow = true
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+vim.o.list = true
+vim.opt.listchars = { tab = '·  ', trail = '·', nbsp = '␣' }
+
+vim.o.inccommand = 'split'
+
+vim.o.cursorline = true
+
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.o.scrolloff = 1000
+
+vim.o.confirm = true
+
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- Keybinds to make split navigation easier.
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Highlight when yanking (copying) text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.hl.on_yank()
+  end,
+})
+
+vim.api.nvim_set_keymap('v', '<LeftRelease>', '"+ygv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<2-LeftRelease>', '"+ygv', { noremap = true, silent = true })
