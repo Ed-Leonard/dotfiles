@@ -19,10 +19,8 @@ require('lazy').setup({
   spec = {
     { import = 'custom.plugins' },
     { import = 'kickstart.plugins' },
+    'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
   },
-
-  -- just chuck the one liners here cause who even cares
-  'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
   install = { colorscheme = { 'gruvbox' } },
 

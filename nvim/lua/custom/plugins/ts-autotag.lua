@@ -7,6 +7,7 @@ return {
       'typescript',
       'typescriptreact',
       'html',
+      'svelte',
     },
     config = function()
       require('nvim-ts-autotag').setup()

@@ -49,20 +49,6 @@ return {
           auto_show_delay_ms = 10,
         },
       },
-
-      cmdline = {
-        menu = { autoshow = true },
-      },
-
-      function()
-        return {
-          formatting = {
-            format = require('lspkind').cmp_format {
-              before = require('tailwind-tools.cmp').lspkind_format,
-            },
-          },
-        }
-      end,
     },
   },
 }
